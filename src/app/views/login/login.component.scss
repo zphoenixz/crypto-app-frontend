@@ -1,0 +1,56 @@
+mat-card {
+    max-width: 350px;
+    margin: 2em auto;
+    text-align: center;
+    max-height: 600px;
+}
+
+.header {
+    text-align: left;
+    margin-left: 5%;
+    padding-bottom: 1em;
+}
+.full-width {
+    width: 90%;
+    padding-top: 0%;
+}
+
+.login-button {
+    width: 64%;
+    float: left;
+    margin-left: 5%;
+    background-color: #ffffff;
+    color: #3cb1ff;
+    outline: 1px solid #3cb1ff;
+    outline-offset: -1px;
+}
+
+.login-button:hover{
+    background-color: #3cb1ff;
+    color: #ffffff;
+}
+
+.register-button {
+    width: 24%;
+    float: right;
+    margin-right: 5%;
+    background-color: #999999;
+    color: #ffffff;
+    // border-color: #5f6264;
+    // border-style: solid;
+    // text-align: center;
+}
+
+.forget-password {
+    padding-left: 0px;
+}
+
+.emailInput {
+    padding-top: 10px;
+}
+
+.buttonRow {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    // display: block;
+}
