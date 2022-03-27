@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { LoginI } from 'src/app/models/login.interface';
+import { LoginRequestI } from 'src/app/models/loginRequest.interface';
 import { LoginResponseI } from 'src/app/models/loginResponse.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserDataResponseI } from 'src/app/models/userDataResponse.interface';
+import { UserRegisterRequestI } from 'src/app/models/userRegisterRequest.interface';
+import { UserRegisterResponseI } from 'src/app/models/userRegisterResponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +15,20 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  login(form: LoginI): Observable<LoginResponseI> {
+  login(form: LoginRequestI): Observable<LoginResponseI> {
     let loginEndPoint = `${this.url}/user-auth-service/user/auth/login`;
 
     return this.http.post<LoginResponseI>(loginEndPoint, form);
+  }
+
+  getUserByEmail(email: string): Observable<UserDataResponseI> {
+    let getUserByEmailEndPoint = `${this.url}/user-registration-service/user/registration/getUserByEmail?email=${email}`;
+    return this.http.get<UserDataResponseI>(getUserByEmailEndPoint);
+  }
+
+  saveUser(form: UserRegisterRequestI): Observable<UserRegisterResponseI> {
+    let loginEndPoint = `${this.url}/user-registration-service/user/registration/saveUser`;
+
+    return this.http.post<UserRegisterResponseI>(loginEndPoint, form);
   }
 }

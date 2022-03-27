@@ -1,1 +1,88 @@
-<p>register works!</p>
+<div class="content-body">
+    <mat-card>
+        <mat-card-content>
+            <div class="header">
+                <mat-label><b>CRYPTOAPP Signing Up!</b></mat-label>
+            </div>
+            <form (ngSubmit)="onRegister(registerForm.value)" name="registerForm" [formGroup]="registerForm">
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" matInput placeholder="Enter email address" required />
+                        <mat-error *ngIf="!registerForm.controls['email'].valid">
+                            Email is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput placeholder="Enter a password address" required />
+                        <mat-error *ngIf="!registerForm.controls['password'].valid">
+                            Password is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>FirstName</mat-label>
+                        <input formControlName="firstName" matInput placeholder="Type your FirstName" required />
+                        <mat-error *ngIf="!registerForm.controls['firstName'].valid">
+                            FirstName is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>LastName</mat-label>
+                        <input formControlName="lastName" matInput placeholder="Type your LastName" required />
+                        <mat-error *ngIf="!registerForm.controls['lastName'].valid">
+                            LastName is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <input formControlName="country" matInput placeholder="Type your Country" required />
+                        <mat-error *ngIf="!registerForm.controls['country'].valid">
+                            Country is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>ZipCode</mat-label>
+                        <input formControlName="zipCode" matInput placeholder="Type your ZipCode" required />
+                        <mat-error *ngIf="!registerForm.controls['zipCode'].valid">
+                            ZipCode is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <input formControlName="address" matInput placeholder="Type your Address" required />
+                        <mat-error *ngIf="!registerForm.controls['address'].valid">
+                            Address is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input formControlName="dateOfBirth" matInput placeholder="Format DD/MM/YYYY" required />
+                        <mat-error *ngIf="!registerForm.controls['dateOfBirth'].valid">
+                            Date of Birth is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="buttonRow">
+                    <button mat-flat-button class="login-button">Register</button>
+                </div>
+
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+</div>

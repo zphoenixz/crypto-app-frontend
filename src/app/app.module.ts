@@ -13,9 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './templates/footer/footer.component';
+import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
 
 
 
@@ -39,7 +40,13 @@ import { FooterComponent } from './templates/footer/footer.component';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { ApiService } from 'src/app/services/api/api.service';
-import { LoginI } from 'src/app/models/login.interface';
+import { LoginRequestI } from 'src/app/models/loginRequest.interface';
 import { LoginResponseI } from 'src/app/models/loginResponse.interface';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UserDataResponseI } from 'src/app/models/userDataResponse.interface';
 
 @Component({
   selector: 'app-login',
@@ -39,7 +40,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onLogin(form: LoginI) {
+  toRegister() {
+    this.router.navigate(['register']);
+  }
+
+  onLogin(form: LoginRequestI) {
     if (!this.loginForm.valid) {
       return;
     }
@@ -65,7 +70,5 @@ export class LoginComponent implements OnInit {
         this.toastrSvc.error(this.errorMessage);
       }
     );
-
   }
-
 }
