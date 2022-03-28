@@ -11,7 +11,7 @@ import { UserRegisterResponseI } from 'src/app/models/userRegisterResponse.inter
   providedIn: 'root'
 })
 export class ApiService {
-  url: string = "http://ec2-13-57-255-162.us-west-1.compute.amazonaws.com:8084";
+  url: string = "https://ec2-13-57-255-162.us-west-1.compute.amazonaws.com:8084";
 
   constructor(private http: HttpClient) { }
 
