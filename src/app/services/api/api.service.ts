@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { UserDataResponseI } from 'src/app/models/userDataResponse.interface';
 import { UserRegisterRequestI } from 'src/app/models/userRegisterRequest.interface';
 import { UserRegisterResponseI } from 'src/app/models/userRegisterResponse.interface';
+import { OperationResponseI } from 'src/app/models/operationResponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,10 @@ export class ApiService {
     let loginEndPoint = `${this.url}/user-registration-service/user/registration/saveUser`;
 
     return this.http.post<UserRegisterResponseI>(loginEndPoint, form);
+  }
+
+  getOperationsForTheLast7DaysByUserEmail(email: string): Observable<OperationResponseI[]> {
+    let getLast7DaysOperations = `${this.url}/user-operation-service/user/operation/getOperationsForTheLast7DaysByUserEmail?email=${email}`;
+    return this.http.get<OperationResponseI[]>(getLast7DaysOperations);
   }
 }

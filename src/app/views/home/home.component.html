@@ -1,3 +1,30 @@
 <app-header></app-header>
-<p>home works!</p>
+<div class="content-body">
+    <div class="subtitle">
+        <h2>Your latest activities (7 days)</h2>
+    </div>
+    <div class="timeline">
+        <div *ngFor="let operation of operations; let i = index">
+            <div [ngClass]="(i+1)%2==0 ? 'container right' : 'container left'">
+                <div class="content">
+                    <h2>{{ operation.timestamp*1000 | date: 'HH:mm - MMM dd, YYYY' }}</h2>
+                    <p>{{ operation.operationName }}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="container left">
+            <div class="content">
+                <h2>2015</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    mazim
+                    fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis
+                    ea
+                    eam.</p>
+            </div>
+        </div> -->
+
+    </div>
+</div>
 <app-footer></app-footer>

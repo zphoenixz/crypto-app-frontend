@@ -29,7 +29,7 @@
 }
 
 .header a.icon:hover {
-  background-color: rgb(68, 97, 243);
+  background-color: #3cb1ff;
   color: rgb(255, 255, 255);
 }
 
@@ -38,6 +38,7 @@
   font-size: 25px;
   font-weight: bold;
 }
+
 
 /* Change the background color on mouse-over */
 .header a:hover {
@@ -49,6 +50,10 @@
 .header a.active {
   background-color: rgb(255, 30, 49);
   color: white;
+}
+.header a.active:hover {
+  background-color: rgb(243, 150, 158);
+  color: black;
 }
 
 /* Float the link section to the right */

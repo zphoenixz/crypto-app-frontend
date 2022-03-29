@@ -1,14 +1,11 @@
-body {
-    margin: 0;
-    position: relative;
-}
-.parent {
+
+.child {
     position: absolute;
     height: 100px;
     width: 100%;
-    bottom: 0%;
+    // bottom: 0%;
     background-color: #333333;
     color: #ffffff;
     text-align: center;
-    line-height: 100px;
+    line-height: 70px;
 }
