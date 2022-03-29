@@ -24,4 +24,14 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['login']);
   }
+
+  hamburguerMenu() {
+    var x = (document.querySelector('.header-right') as HTMLElement);
+
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
 }

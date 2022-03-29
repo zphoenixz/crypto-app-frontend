@@ -1,1 +1,1 @@
-docker run -d -p 80:80 phoenixz/mycrypto-app-frontend:v0.2
+docker run -d -p 80:80 phoenixz/mycrypto-app-frontend:v0.2.1
