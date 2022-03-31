@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CounterState } from 'src/app/state/counter.state';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private store: Store<{ counter: CounterState }>
+  ) { }
+
+
+  // counter!: number;
+  counter$!: Observable<{ counter: number }>;
+  // counterSubscription!: Subscription;
 
   ngOnInit(): void {
+    // this.counterSubscription = this.store
+    //   .select('counter')
+    //   .subscribe(data => {
+    //     this.counter = data.counter;
+    //   });
+
+      this.counter$ = this.store.select('counter');
   }
+
+  // ngOnDestroy(): void {
+  //   if (this.counterSubscription) {
+  //     this.counterSubscription.unsubscribe();
+  //   }
+  // }
 
 }

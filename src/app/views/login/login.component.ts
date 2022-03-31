@@ -6,6 +6,9 @@ import { LoginResponseI } from 'src/app/models/loginResponse.interface';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserDataResponseI } from 'src/app/models/userDataResponse.interface';
+import { Store } from '@ngrx/store';
+import { decrement, increment, reset } from 'src/app/state/counter.actions';
+import { CounterState } from 'src/app/state/counter.state';
 
 @Component({
   selector: 'app-login',
@@ -24,13 +27,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private api: ApiService,
     private router: Router,
-    private toastrSvc: ToastrService) {
-  }
+    private toastrSvc: ToastrService,
+    private store: Store<{ counter: CounterState }>
+  ) { }
 
   errorStatus: boolean = false;
   errorMessage: string = "";
 
   ngOnInit() {
+    console.log("On init")
     this.checkLocalStorage();
   }
 
@@ -71,4 +76,19 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+
+  onIncrement() {
+    console.log("onIncrement")
+    this.store.dispatch(increment())
+  }
+  onDecrement() {
+    console.log("onDecrement")
+    this.store.dispatch(decrement())
+  }
+  onReset() {
+    console.log("onReset")
+    this.store.dispatch(reset())
+  }
+
 }
