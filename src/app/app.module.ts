@@ -17,8 +17,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './templates/footer/footer.component';
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
-import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './state/counter.reducer';
 
 
 @NgModule({
@@ -40,10 +38,6 @@ import { counterReducer } from './state/counter.reducer';
     MatIconModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    StoreModule.forRoot(
-      {
-        counter: counterReducer
-      })
   ],
   providers: [
     {
