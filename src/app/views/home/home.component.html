@@ -1,10 +1,28 @@
 <app-header></app-header>
 <div class="content-body">
     <div class="subtitle">
-        <h2>Your latest activities (7 days)</h2>
+        <h2>Your activities in the last ...</h2>
+
+        <div class="wrapper" (click)="getNewOperationsBySelectedRange()">
+            <input type="radio" name="select" id="option-1">
+            <input type="radio" name="select" id="option-2">
+            <input type="radio" name="select" id="option-3">
+            <label for="option-1" class="option option-1">
+                <div class="dot"></div>
+                <span>24 hrs</span>
+            </label>
+            <label for="option-2" class="option option-2">
+                <div class="dot"></div>
+                <span>7 days</span>
+            </label>
+            <label for="option-3" class="option option-3">
+                <div class="dot"></div>
+                <span>30 days</span>
+            </label>
+        </div>
     </div>
     <div class="timeline">
-        <div *ngFor="let operation of operations; let i = index">
+        <div *ngFor="let operation of userLastOperationsObs | async; let i = index">
             <div [ngClass]="(i+1)%2==0 ? 'container right' : 'container left'">
                 <div class="content">
                     <h2>{{ operation.timestamp*1000 | date: 'HH:mm - MMM dd, YYYY' }}</h2>
@@ -12,18 +30,6 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- <div class="container left">
-            <div class="content">
-                <h2>2015</h2>
-                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
-                    mazim
-                    fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis
-                    ea
-                    eam.</p>
-            </div>
-        </div> -->
 
     </div>
 </div>

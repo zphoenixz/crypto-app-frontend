@@ -30,6 +30,13 @@ export class RegisterComponent implements OnInit {
   ) { }
   hide: boolean = false;
   ngOnInit(): void {
+    this.checkLocalStorage()
+  }
+
+  checkLocalStorage() {
+    if (localStorage.getItem('accessToken')) {
+      this.router.navigate(['home']);
+    }
   }
 
   onRegister(registerForm: UserRegisterRequestI) {
