@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['login']);
   }
+  
+  getUserInfoView() {
+    this.router.navigate(['user']);
+  }
 
   hamburguerMenu() {
     var x = (document.querySelector('.header-right') as HTMLElement);

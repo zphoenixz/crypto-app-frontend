@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="content-body">
+    <mat-card>
+        <mat-card-content>
+            <div class="header">
+                <mat-label><b>Update your profile</b></mat-label>
+            </div>
+            <form (ngSubmit)="updateUserInfoForm(patchForm.value)" name="registerForm" [formGroup]="patchForm">
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <img matSuffix class="input-icon" src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-not-allowed-interface-dreamstale-lineal-dreamstale.png"
+                            width="24px" height="24px">
+                        <input formControlName="email" matInput placeholder="Enter email address"
+                            [(ngModel)]="userData.email" required readonly />
+                        <mat-error *ngIf="!patchForm.controls['email'].valid">
+                            Email is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>FirstName</mat-label>
+                        <img matSuffix class="input-icon" src="https://img.icons8.com/material/24/000000/edit--v1.png"
+                            width="24px" height="24px">
+                        <input formControlName="firstName" matInput placeholder="Type your FirstName"
+                            [(ngModel)]="userData.firstName" required />
+                        <mat-error *ngIf="!patchForm.controls['firstName'].valid">
+                            FirstName is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="emailInput">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>LastName</mat-label>
+                        <img matSuffix class="input-icon" src="https://img.icons8.com/material/24/000000/edit--v1.png"
+                            width="24px" height="24px">
+                        <input formControlName="lastName" matInput placeholder="Type your LastName"
+                            [(ngModel)]="userData.lastName" required />
+                        <mat-error *ngIf="!patchForm.controls['lastName'].valid">
+                            LastName is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="buttonRow">
+                    <button mat-flat-button class="login-button">Update</button>
+                </div>
+
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+<app-footer></app-footer>

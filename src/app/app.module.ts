@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './templates/footer/footer.component';
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
+import { UserComponent } from './views/user/user.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
     AppComponent,
     HeaderComponent,
     routingComponents,
-    FooterComponent
+    FooterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

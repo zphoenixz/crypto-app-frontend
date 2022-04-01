@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkSession()
-
   }
 
   checkCheckedOperation() {
@@ -40,6 +39,7 @@ export class HomeComponent implements OnInit {
       this.lastOperationRadioId = localStorage.getItem("lastOperation")!;
       document.getElementById(this.lastOperationRadioId)?.setAttribute("checked", '')
     }
+
   }
 
 
@@ -139,5 +139,8 @@ export class HomeComponent implements OnInit {
     } else {
       this.userLastOperations = JSON.parse(localStorage.getItem("loadedOperations")!);
     }
+    this.userLastOperationsObs.next(this.userLastOperations)
   }
+
+
 }

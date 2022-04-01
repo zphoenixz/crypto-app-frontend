@@ -7,6 +7,8 @@ import { UserDataResponseI } from 'src/app/models/userDataResponse.interface';
 import { UserRegisterRequestI } from 'src/app/models/userRegisterRequest.interface';
 import { UserRegisterResponseI } from 'src/app/models/userRegisterResponse.interface';
 import { OperationResponseI } from 'src/app/models/operationResponse.interface';
+import { UserInfoResponseI } from 'src/app/models/userInfoResponse.interface';
+import { UserInfoRequestI } from 'src/app/models/userInfoRequest.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +56,11 @@ export class ApiService {
     return this.http.get<OperationResponseI[]>(getLast30DaysOperations).pipe(
       map(response => response)
     );
+  }
+
+  patchPersonalInfoByEmail(form: UserInfoRequestI): Observable<UserInfoResponseI> {
+    let loginEndPoint = `${this.url}/user-registration-service/user/registration/updatePersonalInfoByEmail`;
+
+    return this.http.patch<UserInfoResponseI>(loginEndPoint, form);
   }
 }
